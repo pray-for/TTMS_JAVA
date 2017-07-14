@@ -10,29 +10,29 @@ public class JuMuGuanLiDAO
 
     // @Override
     public int insert(int playtype, int yuyantype, String name, String introduce, String length, String price)
-    {
-        try
-        {
-            String sql = "insert into play (play_type_id,play_lang_id,play_name,play_introduction,play_length,play_ticket_price) values ( "
-                    + playtype + ",'" + yuyantype + "','" + name + "','" + introduce + "','" + length + "','" + price
-                    + "')";
-            System.out.println(sql);
-            DBUtil db = new DBUtil();
-            db.openConnection();
-            int lists = db.execCommand(sql);
-            db.close();
-            db.close();
-            return 1;
+	    {
+		 String image = "F:/TTMS/TTMS_JAVA/src/xupt/se/ttms/images/aaa.jpg";
+	        try
+	        {
+	            String sql = "insert into play (play_type_id,play_lang_id,play_name,play_introduction,play_image,play_length,play_ticket_price,play_status) values ( "
+	                    + playtype + ",'" + yuyantype + "','" + name + "','" + introduce + "','" + image + "','" + length + "','" + price
+	                    + "','" + 1 +"')";
+	            System.out.println(sql);
+	            DBUtil db = new DBUtil();
+	            db.openConnection();
+	            int lists = db.execCommand(sql);
+	            db.close();
+	            db.close();
+	            return 1;
 
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+	        }
+	        catch (Exception e)
+	        {
+	            e.printStackTrace();
+	        }
 
-        return 0;
-    }
-
+	        return 0;
+	    }
     // @Override
     public int update(String playid, int playtype, int yuyantype, String name, String introduce, String length,
             String price)
